@@ -1,21 +1,26 @@
 import os
 
 # Dependencies
-trim_galore = "/share/ClusterShare/software/contrib/gi/trim_galore/0.4.0/trim_galore"
-cutadapt = "/share/ClusterShare/software/contrib/fabbus/python/2.7.3/bin/cutadapt"
-sambamba = "/home/xiuque/bin/sambamba_v0.5.8"
-markDup = "/home/xiuque/bin/MarkDuplicates.jar"
-gatk = "/home/xiuque/bin/GenomeAnalysisTK.jar"
-genomeFile = "/share/ClusterShare/biodata/contrib/gi/gatk-resource-bundle/2.8/b37/human_g1k_v37.fasta"
-referenceIndel = "/share/ClusterShare/biodata/contrib/gi/gatk-resource-bundle/2.8/b37/Mills_and_1000G_gold_standard.indels.b37.vcf"
-referenceSnp = "/share/ClusterShare/biodata/contrib/gi/gatk-resource-bundle/2.8/b37/dbsnp_138.b37.vcf"
 
+dependencies = config['dependencies']
+
+trim_galore= dependencies['trim_galore']
+cutadapt = dependencies['cutadapt']
+sambamba = dependencies['sambamba']
+markDup = dependencies['markDup']
+gatk = dependencies['gatk']
+genomeFile = dependencies['genomeFile']a
+star = dependencies['star']
+star_genome_dir  = dependencies['star_genome_dir']
+## References
+
+references = config['references']
+
+referenceIndel = references['referenceIndel']
+referenceSnp = references['referenceSnp']
+
+samples = config['samples']
 cwd = os.getcwd()
-
-star = "/share/ClusterScratch/xiuque/testsnakemake/STAR-STAR_2.4.2a/bin/Linux_x86_64/STAR"
-star_genome_dir  = "/share/ClusterScratch/xiuque/testsnakemake/lib/genomedir/"
-
-samples = ["778-parental-04-02-2014","778-parental-08-04-2014","778-parental-16-05-2014","778-parental-24-03-2014","778-R-CDK4i-03-01-2014","778-R-CDK4i-04-02-2014","778-R-CDK4i-08-07-2014","778-R-CDK4i-16-05-2014","778-R-CDK4i-24-03-2014","778-R-Nutlin-03-01-2014","778-R-Nutlin-04-02-2014","778-R-Nutlin-08-07-2014","778-R-Nutlin-16-05-2014","778-R-Nutlin-24-03-2014","778-R-Tunicamycin-03-01-2014","778-R-Tunicamycin-04-02-2014","778-R-Tunicamycin-08-07-2014","778-R-Tunicamycin-16-05-2014","778-R-Tunicamycin-24-03-2014"]
 
 rule targets:
     input  : expand("data/{sample}/trimmed/Aligned.recali.bam", sample=samples) , expand("data/{sample}/trimmed/Aligned.recaliNoDS.bam", sample=samples)
