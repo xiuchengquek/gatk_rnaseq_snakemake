@@ -4,8 +4,8 @@ dependencies:
   sambamba : "/home/xiuque/bin/sambamba_v0.5.8"
   markDup : "/home/xiuque/bin/MarkDuplicates.jar"
   gatk : "/home/xiuque/bin/GenomeAnalysisTK.jar"
-  star: "/share/ClusterScratch/xiuque/testsnakemake/STAR-STAR_2.4.2a/bin/Linux_x86_64/STAR"
-  star_genome_dir: "/share/ClusterScratch/xiuque/testsnakemake/lib/genomedir/"
+  star: "/share/ScratchGeneral/xiuque/chimeric_squamous_cell/bin/STAR-STAR_2.5.0a/bin/Linux_x86_64"
+  star_genome_dir: "/share/ScratchGeneral/xiuque/chimeric_squamous_cell/gatk_rnaseq_snakemake/star_genome"
 
 references:
   genomeFile : "/share/ClusterShare/biodata/contrib/gi/gatk-resource-bundle/2.8/b37/human_g1k_v37.fasta"

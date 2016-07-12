@@ -1,0 +1,1 @@
+qsub -cwd -j y -b y -pe smp 32 -V -N stargenome_index /share/ScratchGeneral/xiuque/chimeric_squamous_cell/bin/STAR-STAR_2.5.0a/bin/Linux_x86_64/STAR --runThreadN 36 --runMode genomeGenerate --genomeDir ./star_genome/ --genomeFastaFiles /share/ClusterShare/biodata/contrib/gi/gatk-resource-bundle/2.8/b37/human_g1k_v37.fasta
